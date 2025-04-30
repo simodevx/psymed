@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soutien Psychologique en Ligne - Maroc | psymed services</title>
+    <meta name="description" content="psymed services: Retrouvez calme et clarté. Thérapie et soutien psychologique en ligne au Maroc (TCC, anxiété, stress). Confidentialité et flexibilité.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-light': '#dce0dd',
+                        'custom-medium': '#7fa4b0',
+                        'custom-dark': '#2b5361',
+                        'custom-accent': '#f57842', // Added accent color
+                    },
+                    boxShadow: {
+                        'soft-xl': '0 10px 25px -5px rgba(43, 83, 97, 0.1), 0 8px 10px -6px rgba(43, 83, 97, 0.1)',
+                        'soft-lg': '0 8px 20px -6px rgba(43, 83, 97, 0.1), 0 4px 8px -4px rgba(43, 83, 97, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Default font & Base Styles */
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: theme('colors.custom-light'); color: theme('colors.custom-dark'); line-height: 1.75; font-size: 16px; }
+        html[lang="ar"] body { font-family: 'Cairo', sans-serif; }
+
+        /* Language Button */
+        .lang-btn { transition: color 0.3s ease; }
+        .lang-btn.active { font-weight: 600; color: theme('colors.custom-dark'); position: relative; }
+        .lang-btn.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background-color: theme('colors.custom-medium'); }
+        html[lang="ar"] .lang-btn.active::after { left: auto; right: 0; }
+        .lang-btn:not(.active) { color: theme('colors.gray.500'); }
+        .lang-btn:hover:not(.active) { color: theme('colors.custom-medium'); }
+
+        /* Language Display Rules */
+        html[lang="ar"] [data-lang="fr"] { display: none; }
+        html[lang="fr"] [data-lang="ar"] { display: none; }
+
+        /* RTL Adjustments */
+        html[lang="ar"] { direction: rtl; }
+        html[lang="ar"] .text-left { text-align: right; } html[lang="ar"] .text-right { text-align: left; }
+        html[lang="ar"] .md\:text-left { text-align: right; } html[lang="ar"] .md\:text-right { text-align: left; }
+        html[lang="ar"] .lg\:text-left { text-align: right; } html[lang="ar"] .lg\:text-right { text-align: left; }
+        html[lang="ar"] .space-x-8 > * + * { --tw-space-x-reverse: 1; margin-right: 2rem; margin-left: 0; }
+        html[lang="ar"] .space-x-6 > * + * { --tw-space-x-reverse: 1; margin-right: 1.5rem; margin-left: 0; }
+        html[lang="ar"] .space-x-3 > * + * { --tw-space-x-reverse: 1; margin-right: 0.75rem; margin-left: 0; }
+        html[lang="ar"] .mr-2 { margin-left: 0.5rem; margin-right: 0; } html[lang="ar"] .ml-2 { margin-right: 0.5rem; margin-left: 0; }
+        html[lang="ar"] .mr-3 { margin-left: 0.75rem; margin-right: 0; } html[lang="ar"] .ml-3 { margin-right: 0.75rem; margin-left: 0; }
+        html[lang="ar"] .mr-4 { margin-left: 1rem; margin-right: 0; } html[lang="ar"] .ml-4 { margin-right: 1rem; margin-left: 0; }
+        html[lang="ar"] .md\:mr-12 { margin-left: 3rem; margin-right: 0; } html[lang="ar"] .lg\:mr-16 { margin-left: 4rem; margin-right: 0; }
+        html[lang="ar"] form label { display: block; text-align: right; } html[lang="ar"] form input, html[lang="ar"] form textarea { text-align: right; }
+        html[lang="ar"] .whatsapp-icon { transform: scaleX(-1); margin-left: 0.5rem; margin-right: 0; } html[lang="fr"] .whatsapp-icon { margin-right: 0.5rem; }
+        html[lang="ar"] .icon-inline { margin-left: 0.5rem; margin-right: 0; } html[lang="fr"] .icon-inline { margin-right: 0.5rem; }
+        html[lang="ar"] .footer-icon { margin-left: 0.5rem; margin-right: 0; } html[lang="fr"] .footer-icon { margin-right: 0.5rem; }
+        html[lang="ar"] ol { padding-right: 1.5rem; padding-left: 0; } html[lang="fr"] ol { padding-left: 1.5rem; padding-right: 0; }
+        html[lang="ar"] .advantage-icon { margin-left: 0.75rem; margin-right: 0; } html[lang="fr"] .advantage-icon { margin-right: 0.75rem; }
+        html[lang="ar"] th, html[lang="ar"] td { text-align: right; } /* RTL Table */
+        html[lang="fr"] th, html[lang="fr"] td { text-align: left; } /* LTR Table */
+
+
+        /* Card Styling & Hover Effect */
+        .service-card { transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; border: 1px solid theme('colors.custom-medium' / 15%); box-shadow: theme('boxShadow.soft-lg'); background-color: theme('colors.white' / 60%); backdrop-filter: blur(8px); }
+        .service-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: theme('boxShadow.soft-xl'); }
+
+        /* "Who I Help" list styling */
+        .help-list li { position: relative; padding-left: 1.75rem; margin-bottom: 0.875rem; }
+        .help-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 0.75rem; height: 0.75rem; background-color: theme('colors.custom-medium'); border-radius: 50%; opacity: 0.8; }
+        html[lang="ar"] .help-list li { padding-left: 0; padding-right: 1.75rem; } html[lang="ar"] .help-list li::before { left: auto; right: 0; }
+
+        /* Hero Background Banner */
+        #hero { background-image: linear-gradient(rgba(220, 224, 221, 0.8), rgba(127, 164, 176, 0.5)), url('banner.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; }
+        #hero[style*="background-image: url('banner.jpg')"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom right, theme('colors.custom-light'), theme('colors.custom-medium')); z-index: -1; }
+
+        /* Header scroll effect */
+        #main-header { transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out, padding 0.3s ease-out; padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        #main-header.scrolled { background-color: theme('colors.custom-light' / 85%); backdrop-filter: blur(10px); box-shadow: theme('boxShadow.soft-lg'); padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        #main-header nav a { position: relative; transition: color 0.3s ease; }
+        #main-header nav a::after { content: ''; position: absolute; width: 0; height: 1px; display: block; margin-top: 4px; right: 0; background: theme('colors.custom-medium'); transition: width 0.3s ease; -webkit-transition: width 0.3s ease; }
+        html[lang="ar"] #main-header nav a::after { right: auto; left: 0; }
+        #main-header nav a:hover::after { width: 100%; left: 0; right: auto; }
+        html[lang="ar"] #main-header nav a:hover::after { left: auto; right: 0; }
+
+        /* Scroll animation */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Booking Details & TOS Styling */
+        #booking-details h3 { color: theme('colors.custom-dark'); font-weight: 600; margin-bottom: 1.25rem; font-size: 1.5rem; }
+        #booking-details h4 { color: theme('colors.custom-dark'); font-weight: 600; margin-top: 1.75rem; margin-bottom: 1rem; font-size: 1.25rem; }
+        #booking-details ol { list-style: decimal; margin-left: 1.75rem; space-y: 0.75rem; }
+        #booking-details ol li::marker { color: theme('colors.custom-medium'); font-weight: 600; }
+        #booking-details .price-box { background-color: theme('colors.white' / 70%); backdrop-filter: blur(5px); padding: 2rem; border-radius: 0.75rem; border: 1px solid theme('colors.custom-medium' / 20%); box-shadow: theme('boxShadow.soft-lg'); }
+        #booking-details .tos-box { background-color: theme('colors.custom-light' / 50%); backdrop-filter: blur(5px); padding: 2rem; border-radius: 0.75rem; border: 1px solid theme('colors.custom-medium' / 15%); margin-top: 2rem; box-shadow: theme('boxShadow.soft-lg'); }
+        #booking-details .tos-box p { font-size: 0.9rem; color: theme('colors.gray.700'); line-height: 1.65; }
+
+        /* General Button Styling */
+        .btn-primary { background-image: linear-gradient(to right, theme('colors.custom-dark') 0%, theme('colors.custom-medium') 100%); transition: all 0.4s ease; background-size: 200% auto; }
+        .btn-primary:hover { background-position: right center; transform: translateY(-2px); box-shadow: theme('boxShadow.soft-xl'); }
+
+        /* Section Styling */
+        section { padding-top: 6rem; padding-bottom: 6rem; }
+        #hero { padding-top: 8rem; padding-bottom: 8rem; }
+
+        /* Comparison Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate; /* Use separate for rounded corners */
+            border-spacing: 0;
+            overflow: hidden; /* Needed for rounded corners on table */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: theme('boxShadow.soft-lg');
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 1rem 1.25rem; /* p-4 md:p-5 */
+            border-bottom: 1px solid theme('colors.custom-medium' / 15%);
+        }
+        .comparison-table th {
+            background-color: theme('colors.custom-dark');
+            color: theme('colors.custom-light');
+            font-weight: 600;
+            font-size: 1.125rem; /* text-lg */
+        }
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table tbody tr {
+            background-color: theme('colors.white' / 50%);
+            backdrop-filter: blur(5px);
+        }
+        .comparison-table tbody tr:nth-child(even) {
+             background-color: theme('colors.custom-light' / 50%); /* Slightly different bg for even rows */
+        }
+        .comparison-table td:first-child { /* Feature column */
+            font-weight: 500;
+            color: theme('colors.custom-dark');
+        }
+        .comparison-table .online-col { /* Your service column */
+            /* background-color: theme('colors.custom-accent' / 10%); /* Subtle accent bg */
+        }
+        .comparison-table .check-icon {
+            color: theme('colors.custom-accent'); /* Accent color for checkmarks */
+            width: 1.5rem; /* w-6 */
+            height: 1.5rem; /* h-6 */
+            display: inline-block;
+            vertical-align: middle;
+        }
+         .comparison-table .cross-icon {
+            color: theme('colors.gray.400'); /* Muted color for crosses */
+            width: 1.5rem; /* w-6 */
+            height: 1.5rem; /* h-6 */
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            .comparison-table thead { display: none; } /* Hide headers on mobile */
+            .comparison-table tr {
+                display: block;
+                margin-bottom: 1rem;
+                border: 1px solid theme('colors.custom-medium' / 15%);
+                border-radius: 0.5rem; /* rounded-lg */
+                box-shadow: theme('boxShadow.soft-lg');
+            }
+            .comparison-table td {
+                display: block;
+                text-align: right; /* Align text to right */
+                padding-left: 50%; /* Create space for label */
+                position: relative;
+                border-bottom: 1px solid theme('colors.custom-medium' / 10%);
+            }
+            html[lang="ar"] .comparison-table td { text-align: left; padding-left: 0; padding-right: 50%; } /* RTL mobile */
+
+            .comparison-table td:last-child { border-bottom: none; }
+            .comparison-table td::before {
+                content: attr(data-label); /* Use data-label for header */
+                position: absolute;
+                left: 0.75rem; /* padding-3 */
+                width: 45%;
+                padding-right: 0.75rem; /* padding-3 */
+                font-weight: 600;
+                text-align: left; /* Align label text left */
+                color: theme('colors.custom-dark');
+            }
+             html[lang="ar"] .comparison-table td::before { left: auto; right: 0.75rem; padding-right: 0; padding-left: 0.75rem; text-align: right; } /* RTL mobile label */
+        }
+
+    </style>
+</head>
+<body class="bg-custom-light text-custom-dark antialiased">
+
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" aria-label="Accueil" class="block py-1"> <img src="logo.png" alt="Logo" class="h-10 md:h-12 lg:h-14 w-auto transition-transform duration-300 hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"> <span class="text-xl font-semibold text-custom-dark" style="display: none;">
+                    <span data-lang="fr">psymed services</span>
+                    <span data-lang="ar">خدمات psymed</span>
+                </span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="fr">Approche</a> <a href="#about" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="ar">المنهج</a>
+                <a href="#online-advantage" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="fr">Avantages</a> <a href="#online-advantage" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="ar">المزايا</a>
+                <a href="#comparison" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="fr">Comparaison</a> <a href="#comparison" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="ar">مقارنة</a> <a href="#services" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="fr">Services</a>
+                <a href="#services" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="ar">الخدمات</a>
+                <a href="#booking-details" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="fr">Réservation & Tarifs</a>
+                <a href="#booking-details" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="ar">الحجز والأسعار</a>
+                <a href="#contact" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="fr">Contact</a>
+                <a href="#contact" class="text-gray-700 hover:text-custom-dark font-medium" data-lang="ar">التواصل</a>
+                <div class="flex space-x-3 border-l border-custom-medium/30 pl-6 ml-6"> <button id="lang-fr" class="lang-btn text-sm active" onclick="switchLanguage('fr')">FR</button>
+                    <button id="lang-ar" class="lang-btn text-sm" onclick="switchLanguage('ar')">AR</button>
+                </div>
+            </div>
+             <div class="md:hidden flex items-center">
+                <div class="flex space-x-3 mr-4">
+                    <button id="lang-fr-m" class="lang-btn text-sm active" onclick="switchLanguage('fr')">FR</button>
+                    <button id="lang-ar-m" class="lang-btn text-sm" onclick="switchLanguage('ar')">AR</button>
+                </div>
+                <button class="text-gray-600 hover:text-custom-dark focus:outline-none"> <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                 </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20 md:pt-24">
+        <section id="hero" class="relative">
+             <div class="container mx-auto px-6 text-center relative z-10 hero-content-container">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-custom-dark mb-6 leading-tight reveal">
+                    <span data-lang="fr">Retrouvez calme et clarté, où que vous soyez.</span>
+                    <span data-lang="ar">استعد هدوءك ووضوحك، أينما كنت.</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl lg:text-3xl text-custom-dark/90 mb-10 reveal" style="transition-delay: 0.1s;">
+                    <span data-lang="fr">Soutien psychologique professionnel en ligne, adapté à votre rythme.</span>
+                    <span data-lang="ar">دعم نفسي احترافي عبر الإنترنت، مصمم ليناسب وتيرتك.</span>
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-700 mb-12 max-w-3xl mx-auto reveal" style="transition-delay: 0.2s;">
+                    <span data-lang="fr">Accédez à une thérapie confidentielle et personnalisée pour gérer le stress, l'anxiété et améliorer votre bien-être général. Faisons le premier pas ensemble.</span>
+                    <span data-lang="ar">احصل على علاج نفسي سري وشخصي لإدارة التوتر والقلق وتحسين صحتك العامة. لنتخذ الخطوة الأولى معًا.</span>
+                </p>
+                <div class="reveal" style="transition-delay: 0.3s;">
+                    <a href="#contact" class="btn-primary inline-block text-black font-semibold py-3 px-10 rounded-lg shadow-soft-lg">
+                        <span data-lang="fr">Réserver une Séance</span>
+                        <span data-lang="ar">احجز جلسة</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="bg-custom-light overflow-hidden">
+             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-20 reveal">
+                 <div class="md:w-2/5">
+                    <img src="image1.jpeg"
+                         alt="Personne en contemplation, symbolisant la réflexion et le soutien psychologique"
+                         class="rounded-xl shadow-soft-xl w-full h-auto object-cover aspect-square md:aspect-auto"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x600/dce0dd/888888?text=Image+Not+Found'; this.alt='Image non trouvée';">
+                     <span data-lang="fr" class="sr-only">Personne en contemplation, symbolisant la réflexion et le soutien psychologique</span>
+                     <span data-lang="ar" class="sr-only">شخص يتأمل، يرمز للتفكير والدعم النفسي</span>
+                </div>
+                <div class="md:w-3/5 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark mb-6">
+                        <span data-lang="fr">Une Approche Centrée sur Vous</span>
+                        <span data-lang="ar">نهج يركز عليك</span>
+                    </h2>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mb-5">
+                        <strong data-lang="fr" class="text-custom-dark font-medium">Psychologue spécialisé dans le soutien en santé mentale.</strong> <strong data-lang="ar" class="text-custom-dark font-medium">أخصائي نفسي متخصص في دعم الصحة النفسية.</strong>
+                        <span data-lang="fr"> Mon objectif est de créer un espace sécurisé et sans jugement pour vous aider à explorer vos défis, développer des stratégies d'adaptation et atteindre un équilibre émotionnel durable. J'utilise des approches basées sur les preuves comme la TCC et la thérapie orientée solutions.</span>
+                        <span data-lang="ar"> هدفي هو خلق مساحة آمنة وخالية من الأحكام لمساعدتك على استكشاف تحدياتك، وتطوير استراتيجيات التكيف، وتحقيق توازن عاطفي دائم. أستخدم مقاربات مبنية على الأدلة العلمية مثل العلاج المعرفي السلوكي (CBT) والعلاج المرتكز على الحلول.</span>
+                    </p>
+                     <p class="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                        <span data-lang="fr">Je crois en une collaboration active pour vous accompagner avec empathie vers une meilleure compréhension de vous-même et une vie plus épanouie.</span>
+                        <span data-lang="ar"> أؤمن بالتعاون النشط لمرافقتك بتعاطف نحو فهم أفضل لذاتك وحياة أكثر إشباعًا.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="online-advantage" class="bg-white overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark text-center mb-16">
+                    <span data-lang="fr">Les Avantages de la Thérapie en Ligne</span>
+                    <span data-lang="ar">مزايا العلاج عبر الإنترنت</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 text-center md:text-left">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="mb-4 md:mb-0 text-custom-medium flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 advantage-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-custom-dark mb-1">
+                                <span data-lang="fr">Accessibilité</span>
+                                <span data-lang="ar">سهولة الوصول</span>
+                            </h4>
+                            <p class="text-gray-600">
+                                <span data-lang="fr">Accédez au soutien où que vous soyez au Maroc, sans contraintes géographiques.</span>
+                                <span data-lang="ar">احصل على الدعم أينما كنت في المغرب، دون قيود جغرافية.</span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="flex flex-col md:flex-row items-center">
+                        <div class="mb-4 md:mb-0 text-custom-medium flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 advantage-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.5l3 1.091l3-1.091l3 1.091l3-1.091" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-custom-dark mb-1">
+                                <span data-lang="fr">Confort & Confidentialité</span>
+                                <span data-lang="ar">الراحة والخصوصية</span>
+                            </h4>
+                            <p class="text-gray-600">
+                                <span data-lang="fr">Bénéficiez des séances depuis l'environnement sécurisant et familier de votre domicile.</span>
+                                <span data-lang="ar">استفد من الجلسات في بيئة منزلك الآمنة والمألوفة.</span>
+                            </p>
+                        </div>
+                    </div>
+                     <div class="flex flex-col md:flex-row items-center">
+                        <div class="mb-4 md:mb-0 text-custom-medium flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 advantage-icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-custom-dark mb-1">
+                                <span data-lang="fr">Flexibilité</span>
+                                <span data-lang="ar">المرونة</span>
+                            </h4>
+                            <p class="text-gray-600">
+                                <span data-lang="fr">Intégrez facilement les séances dans votre emploi du temps, sans temps de déplacement.</span>
+                                <span data-lang="ar">أدمج الجلسات بسهولة في جدولك الزمني، دون الحاجة لوقت التنقل.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+         <section id="comparison" class="bg-custom-light overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark text-center mb-16">
+                    <span data-lang="fr">Thérapie en Ligne vs. Thérapie Traditionnelle</span>
+                    <span data-lang="ar">العلاج عبر الإنترنت مقابل العلاج التقليدي</span>
+                </h2>
+                <div class="overflow-x-auto"> <table class="comparison-table min-w-full">
+                        <thead>
+                            <tr>
+                                <th class="w-1/3">
+                                    <span data-lang="fr">Caractéristique</span>
+                                    <span data-lang="ar">الميزة</span>
+                                </th>
+                                <th class="w-1/3">
+                                    <span data-lang="fr">Thérapie en Ligne (psymed)</span>
+                                    <span data-lang="ar">العلاج عبر الإنترنت (psymed)</span>
+                                </th>
+                                <th class="w-1/3">
+                                    <span data-lang="fr">Thérapie en Personne</span>
+                                    <span data-lang="ar">العلاج الحضوري</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label-fr="Commodité" data-label-ar="الراحة">
+                                    <span data-lang="fr">Commodité</span>
+                                    <span data-lang="ar">الراحة</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Ligne" data-label-ar="العلاج عبر الإنترنت" class="online-col">
+                                    <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> </svg>
+                                    <span data-lang="fr">Depuis chez vous</span>
+                                    <span data-lang="ar">من منزلك</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Personne" data-label-ar="العلاج الحضوري">
+                                     <svg class="cross-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /> </svg>
+                                    <span data-lang="fr">Déplacement requis</span>
+                                    <span data-lang="ar">يتطلب التنقل</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-label-fr="Coût" data-label-ar="التكلفة">
+                                    <span data-lang="fr">Coût</span>
+                                    <span data-lang="ar">التكلفة</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Ligne" data-label-ar="العلاج عبر الإنترنت" class="online-col">
+                                    <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> </svg>
+                                    <span data-lang="fr">Souvent plus abordable (200 MAD/séance)</span>
+                                    <span data-lang="ar">غالباً ما تكون ميسورة التكلفة (200 درهم/جلسة)</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Personne" data-label-ar="العلاج الحضوري">
+                                    <span data-lang="fr">Généralement plus élevé</span>
+                                    <span data-lang="ar">عادة ما تكون أعلى</span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td data-label-fr="Flexibilité Horaire" data-label-ar="مرونة المواعيد">
+                                    <span data-lang="fr">Flexibilité Horaire</span>
+                                    <span data-lang="ar">مرونة المواعيد</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Ligne" data-label-ar="العلاج عبر الإنترنت" class="online-col">
+                                    <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> </svg>
+                                    <span data-lang="fr">Plus grande flexibilité</span>
+                                    <span data-lang="ar">مرونة أكبر</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Personne" data-label-ar="العلاج الحضوري">
+                                    <span data-lang="fr">Horaires de bureau standards</span>
+                                    <span data-lang="ar">أوقات عمل قياسية</span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td data-label-fr="Accessibilité" data-label-ar="إمكانية الوصول">
+                                    <span data-lang="fr">Accessibilité</span>
+                                    <span data-lang="ar">إمكانية الوصول</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Ligne" data-label-ar="العلاج عبر الإنترنت" class="online-col">
+                                     <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> </svg>
+                                    <span data-lang="fr">Partout avec une connexion</span>
+                                    <span data-lang="ar">في أي مكان مع اتصال بالإنترنت</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Personne" data-label-ar="العلاج الحضوري">
+                                     <svg class="cross-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /> </svg>
+                                    <span data-lang="fr">Limité géographiquement</span>
+                                    <span data-lang="ar">محدود جغرافياً</span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td data-label-fr="Communication" data-label-ar="التواصل">
+                                    <span data-lang="fr">Communication</span>
+                                    <span data-lang="ar">التواصل</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Ligne" data-label-ar="العلاج عبر الإنترنت" class="online-col">
+                                    <span data-lang="fr">Vidéo (Google Meet) ou Téléphone</span>
+                                    <span data-lang="ar">فيديو (Google Meet) أو هاتف</span>
+                                </td>
+                                <td data-label-fr="Thérapie en Personne" data-label-ar="العلاج الحضوري">
+                                    <span data-lang="fr">Face à face uniquement</span>
+                                    <span data-lang="ar">وجهًا لوجه فقط</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="who-help" class="bg-gradient-to-br from-custom-medium/10 via-custom-medium/20 to-custom-medium/10 overflow-hidden"> <div class="container mx-auto px-6 text-center reveal"> <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark mb-10"> <span data-lang="fr">À Qui S'adresse Ce Soutien ?</span>
+                    <span data-lang="ar">لمن هذا الدعم؟</span>
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-700 mb-12 max-w-3xl mx-auto"> <span data-lang="fr">Je propose un accompagnement pour adultes et jeunes adultes confrontés à diverses difficultés. Si vous vous reconnaissez dans l'une des situations suivantes, je suis là pour vous aider :</span>
+                    <span data-lang="ar">أقدم الدعم للبالغين والشباب الذين يواجهون صعوبات متنوعة. إذا وجدت نفسك في إحدى الحالات التالية، فأنا هنا لمساعدتك:</span>
+                </p>
+                <div class="max-w-2xl mx-auto text-left md:text-center">
+                    <ul class="help-list text-lg lg:text-xl text-gray-700 space-y-3 inline-block"> <li data-lang="fr">Gestion du stress et de l'anxiété</li>
+                        <li data-lang="ar">إدارة التوتر والقلق</li>
+                        <li data-lang="fr">Sentiment de tristesse, déprime ou perte d'intérêt</li>
+                        <li data-lang="ar">الشعور بالحزن أو الاكتئاب أو فقدان الاهتمام</li>
+                        <li data-lang="fr">Difficultés relationnelles (couple, famille, travail)</li>
+                        <li data-lang="ar">صعوبات في العلاقات (زوجية، عائلية، مهنية)</li>
+                        <li data-lang="fr">Manque de confiance en soi ou faible estime de soi</li>
+                        <li data-lang="ar">نقص الثقة بالنفس أو تدني تقدير الذات</li>
+                         <li data-lang="fr">Gestion des émotions (colère, frustration)</li>
+                        <li data-lang="ar">إدارة المشاعر (الغضب، الإحباط)</li>
+                        <li data-lang="fr">Adaptation aux changements de vie (déménagement, expatriation, nouvelle carrière)</li>
+                        <li data-lang="ar">التكيف مع تغييرات الحياة (الانتقال، الاغتراب، مسار مهني جديد)</li>
+                        <li data-lang="fr">Besoin de soutien pour traverser une période difficile</li>
+                        <li data-lang="ar">الحاجة إلى الدعم لتجاوز فترة صعبة</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="bg-custom-light overflow-hidden"> <div class="container mx-auto px-6 reveal"> <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark text-center mb-20"> <span data-lang="fr">Mes Services</span>
+                    <span data-lang="ar">خدماتي</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <div class="service-card p-8 rounded-xl flex flex-col items-center text-center"> <div class="mb-5 text-custom-medium"> <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"> <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /> </svg>
+                         </div>
+                        <h3 class="text-xl font-semibold text-custom-dark mb-3">
+                            <span data-lang="fr">Thérapie Individuelle en Ligne</span>
+                            <span data-lang="ar">العلاج النفسي الفردي عبر الإنترنت</span>
+                        </h3>
+                        <p class="text-gray-600 text-base leading-relaxed"> <span data-lang="fr">Un espace confidentiel pour explorer vos difficultés, comprendre vos émotions et atteindre vos objectifs personnels de bien-être.</span>
+                            <span data-lang="ar">مساحة سرية لاستكشاف تحدياتك وفهم مشاعرك وتحقيق أهدافك الشخصية نحو التعافي.</span>
+                        </p>
+                    </div>
+                    <div class="service-card p-8 rounded-xl flex flex-col items-center text-center">
+                         <div class="mb-5 text-custom-medium">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"> <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /> </svg>
+                         </div>
+                        <h3 class="text-xl font-semibold text-custom-dark mb-3">
+                            <span data-lang="fr">Thérapie Cognitivo-Comportementale (TCC)</span>
+                            <span data-lang="ar">العلاج المعرفي السلوكي (CBT)</span>
+                        </h3>
+                        <p class="text-gray-600 text-base leading-relaxed">
+                            <span data-lang="fr">Apprenez des techniques pratiques pour identifier et modifier les schémas de pensée et comportements négatifs. Efficace pour l'anxiété, la dépression, les phobies.</span>
+                            <span data-lang="ar">تعلم تقنيات عملية لتحديد وتغيير أنماط التفكير والسلوكيات السلبية. فعال للقلق والاكتئاب والمخاوف (الفوبيا).</span>
+                        </p>
+                    </div>
+                    <div class="service-card p-8 rounded-xl flex flex-col items-center text-center">
+                         <div class="mb-5 text-custom-medium">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" > <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.355a15.07 15.07 0 01-4.5 0m3.75 2.355a18.08 18.08 0 01-4.5 0M9.75 1.066c.314.178.65.329.998.462m-.998-.462c-.314.178-.65.329-.998.462m0-1.299a18.083 18.083 0 014.5 0m-4.5 0a18.082 18.082 0 00-4.5 0m9 1.299A12.06 12.06 0 0015 1.066m-3.75 0c.314.178.65.329.998.462m-.998-.462a6.01 6.01 0 00-1.5.189m1.5-.189a6.01 6.01 0 011.5.189m0 0A12.06 12.06 0 0115 1.066m-3.75 0c-.314.178-.65.329-.998.462" /> </svg>
+                         </div>
+                        <h3 class="text-xl font-semibold text-custom-dark mb-3">
+                            <span data-lang="fr">Thérapie Brève Orientée Solutions</span>
+                            <span data-lang="ar">العلاج الموجز المرتكز على الحلول</span>
+                        </h3>
+                        <p class="text-gray-600 text-base leading-relaxed">
+                            <span data-lang="fr">Approche pragmatique axée sur vos forces et ressources pour trouver des solutions concrètes et rapides à des problèmes spécifiques.</span>
+                            <span data-lang="ar">نهج عملي يركز على نقاط قوتك ومواردك لإيجاد حلول ملموسة وسريعة لمشاكل محددة.</span>
+                        </p>
+                    </div>
+                    <div class="service-card p-8 rounded-xl flex flex-col items-center text-center">
+                         <div class="mb-5 text-custom-medium">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"> <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-2.13a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /> </svg>
+                         </div>
+                        <h3 class="text-xl font-semibold text-custom-dark mb-3">
+                            <span data-lang="fr">Soutien et Conseil Psychologique</span>
+                            <span data-lang="ar">الدعم والاستشارة النفسية</span>
+                        </h3>
+                        <p class="text-gray-600 text-base leading-relaxed">
+                            <span data-lang="fr">Consultations ponctuelles pour obtenir un avis éclairé, du soutien face à une situation spécifique ou pour faire le point sur votre bien-être mental.</span>
+                            <span data-lang="ar">جلسات استشارية للحصول على رأي مستنير، أو دعم لمواجهة موقف معين، أو لتقييم وضع صحتك النفسية.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="bg-custom-light overflow-hidden">
+             <div class="container mx-auto px-6 reveal">
+                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark text-center mb-20">
+                     <span data-lang="fr">Comment Ça Marche ?</span>
+                     <span data-lang="ar">كيف تتم العملية؟</span>
+                 </h2>
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 text-center">
+                    <div class="p-6 flex flex-col items-center">
+                         <div class="mb-6 text-custom-medium">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 lg:h-20 lg:w-20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5M12 15.75h.008v.008H12v-.008z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.5h.008v.008H3v-.008zm0 2.25h.008v.008H3v-.008zm.75-6.75h.008v.008H3.75v-.008zm.75 2.25h.008v.008H4.5v-.008zm.75 2.25h.008v.008H5.25v-.008zm.75 2.25h.008v.008H6v-.008zm.75-6.75h.008v.008H6.75v-.008zm.75 2.25h.008v.008H7.5v-.008zm.75 2.25h.008v.008H8.25v-.008zm.75 2.25h.008v.008H9v-.008zm.75-6.75h.008v.008H9.75v-.008zm.75 2.25h.008v.008H10.5v-.008zm.75 2.25h.008v.008H11.25v-.008zm.75 2.25h.008v.008H12v-.008z" />
+                            </svg>
+                         </div>
+                        <h3 class="text-xl lg:text-2xl font-semibold text-custom-dark mb-3">
+                            <span data-lang="fr">1. Prise de Contact</span>
+                            <span data-lang="ar">1. التواصل</span>
+                        </h3>
+                        <p class="text-gray-600 text-base lg:text-lg leading-relaxed">
+                            <span data-lang="fr">Contactez-moi via le formulaire, WhatsApp ou email pour discuter de vos besoins et planifier un créneau.</span>
+                            <span data-lang="ar">تواصل معي عبر النموذج أو واتساب أو البريد الإلكتروني لمناقشة احتياجاتك وتحديد موعد.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 flex flex-col items-center">
+                          <div class="mb-6 text-custom-medium">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 lg:h-20 lg:w-20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                             </svg>
+                         </div>
+                        <h3 class="text-xl lg:text-2xl font-semibold text-custom-dark mb-3">
+                            <span data-lang="fr">2. Confirmation & Paiement</span>
+                            <span data-lang="ar">2. التأكيد والدفع</span>
+                        </h3>
+                        <p class="text-gray-600 text-base lg:text-lg leading-relaxed">
+                            <span data-lang="fr">Confirmez votre RDV en effectuant le paiement sécurisé par virement bancaire 48h avant la séance.</span>
+                            <span data-lang="ar">أكّد موعدك عن طريق إجراء الدفع الآمن عبر التحويل البنكي قبل 48 ساعة من الجلسة.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 flex flex-col items-center">
+                          <div class="mb-6 text-custom-medium">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 lg:h-20 lg:w-20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                             </svg>
+                         </div>
+                        <h3 class="text-xl lg:text-2xl font-semibold text-custom-dark mb-3">
+                            <span data-lang="fr">3. Votre Séance en Ligne</span>
+                            <span data-lang="ar">3. جلستك عبر الإنترنت</span>
+                        </h3>
+                        <p class="text-gray-600 text-base lg:text-lg leading-relaxed">
+                            <span data-lang="fr">Connectez-vous à l'heure convenue via Google Meet ou téléphone pour votre séance confidentielle et personnalisée.</span>
+                            <span data-lang="ar">اتصل في الوقت المتفق عليه عبر Google Meet أو الهاتف لجلسة سرية وشخصية.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-12 text-gray-700 max-w-4xl mx-auto"> <p class="text-lg lg:text-xl leading-relaxed"> <span data-lang="fr">Chaque séance dure environ <strong>60 minutes</strong>. En général, <strong>6 à 8 séances</strong> permettent d'observer des résultats significatifs, bien que cela puisse varier selon vos besoins spécifiques.</span>
+                        <span data-lang="ar">مدة كل جلسة حوالي <strong>60 دقيقة</strong>. بشكل عام، تتيح <strong>6 إلى 8 جلسات</strong> ملاحظة نتائج ملموسة، على الرغم من أن ذلك قد يختلف حسب احتياجاتك الخاصة.</span>
+                    </p>
+                </div>
+                 <div class="text-center mt-16 text-gray-700 bg-white p-8 rounded-xl max-w-4xl mx-auto border border-custom-medium/30 shadow-soft-lg"> <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-custom-medium mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <h3 class="text-xl lg:text-2xl font-semibold text-custom-dark mb-2">
+                        <span data-lang="fr">Confidentialité Garantie</span>
+                        <span data-lang="ar">السرية مضمونة</span>
+                    </h3>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                        <span data-lang="fr">Votre vie privée est ma priorité absolue. Tout échange est strictement confidentiel et protégé par le secret professionnel.</span>
+                        <span data-lang="ar">خصوصيتك هي أولويتي القصوى. جميع محادثاتنا سرية تمامًا ومحمية بموجب السرية المهنية.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking-details" class="bg-white overflow-hidden">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark text-center mb-16">
+                    <span data-lang="fr">Comment Réserver Votre Séance</span>
+                    <span data-lang="ar">كيفية حجز جلستك</span>
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    <div>
+                        <h3 class="text-2xl lg:text-3xl">
+                            <span data-lang="fr">Étapes de Réservation</span>
+                            <span data-lang="ar">خطوات الحجز</span>
+                        </h3>
+                        <ol class="text-lg lg:text-xl text-gray-700 space-y-4 mb-10">
+                            <li>
+                                <span data-lang="fr"><strong>Contactez-moi :</strong> Utilisez le <a href="#contact" class="text-custom-medium hover:text-custom-dark underline underline-offset-2">formulaire de contact</a>, WhatsApp ou Email pour exprimer votre souhait de réserver une séance.</span>
+                                <span data-lang="ar"><strong>تواصل معي:</strong> استخدم <a href="#contact" class="text-custom-medium hover:text-custom-dark underline underline-offset-2">نموذج الاتصال</a> أو واتساب أو البريد الإلكتروني للتعبير عن رغبتك في حجز جلسة.</span>
+                            </li>
+                            <li>
+                                <span data-lang="fr"><strong>Confirmation du créneau :</strong> Nous conviendrons ensemble d'une date et d'une heure pour votre séance.</span>
+                                <span data-lang="ar"><strong>تأكيد الموعد:</strong> سنتفق معًا على تاريخ ووقت مناسبين لجلستك.</span>
+                            </li>
+                            <li>
+                                <span data-lang="fr"><strong>Paiement :</strong> Effectuez le paiement par virement bancaire (les détails vous seront communiqués) au moins <strong>48 heures avant</strong> la séance pour confirmer définitivement votre rendez-vous.</span>
+                                <span data-lang="ar"><strong>الدفع:</strong> قم بالدفع عن طريق التحويل البنكي (سيتم تزويدك بالتفاصيل) قبل <strong>48 ساعة على الأقل</strong> من موعد الجلسة لتأكيد حجزك بشكل نهائي.</span>
+                            </li>
+                            <li>
+                                <span data-lang="fr"><strong>Confirmation RDV :</strong> Une fois le paiement reçu, vous recevrez une confirmation finale de votre rendez-vous par WhatsApp ou Email.</span>
+                                <span data-lang="ar"><strong>تأكيد الحجز:</strong> بمجرد استلام الدفعة، ستتلقى تأكيدًا نهائيًا لموعدك عبر واتساب أو البريد الإلكتروني.</span>
+                            </li>
+                             <li>
+                                <span data-lang="fr"><strong>Déroulement de la séance :</strong> À l'heure convenue, je vous appellerai via <strong>téléphone</strong> ou <strong>Google Meet</strong>, selon votre préférence indiquée lors de la réservation.</span>
+                                <span data-lang="ar"><strong>إجراء الجلسة:</strong> في الوقت المتفق عليه، سأتصل بك عبر <strong>الهاتف</strong> أو <strong>Google Meet</strong>، حسب تفضيلك الموضح عند الحجز.</span>
+                            </li>
+                        </ol>
+
+                        <div class="price-box text-center md:text-left">
+                            <h4 class="text-xl lg:text-2xl font-semibold text-custom-dark mb-2">
+                                <span data-lang="fr">Tarif et Paiement</span>
+                                <span data-lang="ar">السعر والدفع</span>
+                            </h4>
+                            <p class="text-2xl lg:text-3xl font-bold text-custom-medium mb-2">
+                                <span data-lang="fr">200 MAD / Séance</span>
+                                <span data-lang="ar">200 درهم مغربي / للجلسة</span>
+                            </p>
+                            <p class="text-gray-600 text-base lg:text-lg">
+                                <span data-lang="fr">(Paiement par virement bancaire requis 48h à l'avance)</span>
+                                <span data-lang="ar">(الدفع مطلوب عن طريق التحويل البنكي قبل 48 ساعة)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tos-box">
+                        <h3 class="text-2xl lg:text-3xl">
+                            <span data-lang="fr">Termes et Conditions</span>
+                            <span data-lang="ar">الشروط والأحكام</span>
+                        </h3>
+                        <h4 class="text-xl lg:text-2xl">
+                            <span data-lang="fr">Déontologie et Confidentialité</span>
+                            <span data-lang="ar">أخلاقيات المهنة والسرية</span>
+                        </h4>
+                        <p>
+                            <span data-lang="fr">En tant que psychologue, je m'engage à respecter le code de déontologie de la profession. Cela inclut le respect absolu du <strong>secret professionnel</strong> : tout ce qui est dit en séance reste strictement confidentiel. Mon approche est basée sur le <strong>respect de la personne</strong>, l'écoute bienveillante, l'absence de jugement et la reconnaissance de votre autonomie.</span>
+                            <span data-lang="ar">بصفتي أخصائيًا نفسيًا، ألتزم باحترام مدونة أخلاقيات المهنة. وهذا يشمل الاحترام المطلق لـ <strong>السرية المهنية</strong>: كل ما يقال في الجلسة يبقى سريًا تمامًا. يعتمد منهجي على <strong>احترام الفرد</strong>، والاستماع اليقظ، وعدم إصدار الأحكام، والاعتراف باستقلاليتك.</span>
+                        </p>
+                        <h4 class="text-xl lg:text-2xl">
+                            <span data-lang="fr">Conditions d'Annulation</span>
+                            <span data-lang="ar">شروط الإلغاء</span>
+                        </h4>
+                        <p>
+                            <span data-lang="fr">Votre temps est précieux, tout comme le mien. Si vous devez annuler ou reporter votre séance, merci de me prévenir au minimum <strong>24 heures à l'avance</strong>. Toute annulation tardive ou absence non justifiée entraînera la facturation de la séance. Je vous remercie de votre compréhension.</span>
+                            <span data-lang="ar">وقتك ثمين، وكذلك وقتي. إذا احتجت إلى إلغاء أو تأجيل جلستك، يرجى إبلاغي قبل <strong>24 ساعة على الأقل</strong>. أي إلغاء متأخر أو غياب غير مبرر سيؤدي إلى احتساب تكلفة الجلسة. أشكركم على تفهمكم.</span>
+                        </p>
+                         <h4 class="text-xl lg:text-2xl">
+                            <span data-lang="fr">Limites de la Thérapie en Ligne</span>
+                            <span data-lang="ar">حدود العلاج عبر الإنترنت</span>
+                        </h4>
+                        <p>
+                            <span data-lang="fr">La thérapie en ligne offre flexibilité et accessibilité, mais elle ne convient pas aux situations de crise aiguë ou d'urgence psychiatrique nécessitant une intervention immédiate. En cas de détresse intense, d'idées suicidaires ou de danger pour vous-même ou autrui, il est impératif de contacter les services d'urgence locaux (SAMU 141, Police 19, Gendarmerie 177, Pompiers 15) ou de vous rendre aux urgences les plus proches.</span>
+                            <span data-lang="ar">يوفر العلاج عبر الإنترنت المرونة وسهولة الوصول، ولكنه غير مناسب لحالات الأزمات الحادة أو الطوارئ النفسية التي تتطلب تدخلًا فوريًا. في حالة الضيق الشديد أو الأفكار الانتحارية أو الخطر على نفسك أو الآخرين، من الضروري الاتصال بخدمات الطوارئ المحلية (SAMU 141، الشرطة 19، الدرك الملكي 177، الوقاية المدنية 15) أو التوجه إلى أقرب قسم طوارئ.</span>
+                        </p>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-gradient-to-br from-custom-medium/20 to-custom-dark/10 overflow-hidden"> <div class="container mx-auto px-6 reveal"> <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-custom-dark text-center mb-8"> <span data-lang="fr">Prêt(e) à faire le premier pas ?</span>
+                    <span data-lang="ar">هل أنت مستعد(ة) لاتخاذ الخطوة الأولى؟</span>
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-700 text-center mb-16 max-w-3xl mx-auto leading-relaxed"> <span data-lang="fr">N'hésitez pas à me contacter pour toute question ou pour réserver votre première séance. Je m'engage à vous répondre dans les plus brefs délais (généralement sous 24h ouvrables).</span>
+                    <span data-lang="ar">لا تتردد في التواصل معي لأي استفسار أو لحجز جلستك الأولى. ألتزم بالرد عليك في أقرب وقت ممكن (عادة خلال 24 ساعة عمل).</span>
+                </p>
+
+                <div class="flex flex-col lg:flex-row justify-center items-start gap-12 lg:gap-16">
+
+                    <div class="w-full lg:w-1/2 bg-white p-8 md:p-10 rounded-xl shadow-soft-xl border border-gray-300/50"> <h3 class="text-2xl lg:text-3xl font-semibold text-custom-dark mb-8">
+                            <span data-lang="fr">Envoyer un message</span>
+                            <span data-lang="ar">إرسال رسالة</span>
+                        </h3>
+                        <form action="https://formspree.io/f/xkgrogvy" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 text-sm font-medium mb-1">
+                                    <span data-lang="fr">Nom</span>
+                                    <span data-lang="ar">الاسم</span>
+                                </label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-medium focus:border-custom-medium transition duration-200 shadow-sm"> </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 text-sm font-medium mb-1">
+                                    <span data-lang="fr">Email</span>
+                                    <span data-lang="ar">البريد الإلكتروني</span>
+                                </label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-medium focus:border-custom-medium transition duration-200 shadow-sm">
+                            </div>
+                             <div>
+                                <label for="phone" class="block text-gray-700 text-sm font-medium mb-1">
+                                    <span data-lang="fr">Téléphone (Optionnel)</span>
+                                    <span data-lang="ar">الهاتف (اختياري)</span>
+                                </label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-medium focus:border-custom-medium transition duration-200 shadow-sm">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 text-sm font-medium mb-1">
+                                    <span data-lang="fr">Votre message (brève description de votre besoin si possible)</span>
+                                    <span data-lang="ar">رسالتك (وصف موجز لاحتياجك إن أمكن)</span>
+                                </label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-medium focus:border-custom-medium transition duration-200 shadow-sm"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-medium"> <span data-lang="fr">Envoyer le Message</span>
+                                <span data-lang="ar">إرسال الرسالة</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="w-full lg:w-1/3 text-center lg:text-left mt-8 lg:mt-0">
+                         <h3 class="text-2xl lg:text-3xl font-semibold text-custom-dark mb-8">
+                            <span data-lang="fr">Autres Moyens de Contact</span>
+                            <span data-lang="ar">طرق تواصل أخرى</span>
+                        </h3>
+                        <div class="mb-8">
+                            <h4 class="text-lg lg:text-xl font-medium text-gray-700 mb-3">
+                                <span data-lang="fr">WhatsApp (Privilégié pour une réponse rapide)</span>
+                                <span data-lang="ar">واتساب (يفضل لرد أسرع)</span>
+                             </h4>
+                            <a href="https://wa.me/212663056341" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 whatsapp-icon" viewBox="0 0 20 20" fill="currentColor"> <path fill-rule="evenodd" d="M18 10c0 4.418-3.582 8-8 8s-8-3.582-8-8 3.582-8 8-8 8 3.582 8 8zm-4.939 3.477c-.144-.072-.847-.418-1.008-.465-.16-.047-.276-.072-.392.072-.116.144-.382.465-.469.558-.087.093-.174.105-.318.033-.144-.072-.606-.224-1.154-.711-.428-.378-.717-.847-.804-.991-.087-.144-.009-.224.063-.297.063-.063.144-.168.216-.252.072-.084.096-.144.144-.24.048-.096.024-.18-.012-.252-.036-.072-.392-.936-.536-1.275-.134-.328-.276-.282-.392-.288-.107-.006-.231-.006-.347-.006s-.303.045-.469.216c-.166.171-.633.618-.633 1.491 0 .873.645 1.729.732 1.854.087.125 1.279 1.943 3.1 2.711.437.18.78.288 1.05.368.447.132.847.114 1.166.072.348-.048 1.008-.411 1.149-.804.14-.392.14-.729.105-.804-.036-.072-.151-.117-.318-.189z" clip-rule="evenodd" /> </svg>
+                                <span data-lang="fr">Discuter sur WhatsApp</span>
+                                <span data-lang="ar">تحدث عبر واتساب</span>
+                            </a>
+                             <p class="text-sm text-gray-600 mt-2">
+                                <span data-lang="fr">(Cliquez pour démarrer la conversation)</span>
+                                <span data-lang="ar">(اضغط لبدء المحادثة)</span>
+                             </p>
+                        </div>
+                        <div class="mb-6">
+                             <h4 class="text-lg lg:text-xl font-medium text-gray-700 mb-3">
+                                <span data-lang="fr">Email</span>
+                                <span data-lang="ar">البريد الإلكتروني</span>
+                             </h4>
+                              <div class="flex items-center justify-center lg:justify-start mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-custom-medium icon-inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /> </svg>
+                                <a href="mailto:psymed.bou@gmail.com" class="text-custom-medium hover:text-custom-dark hover:underline break-all text-lg lg:text-xl transition duration-300">psymed.bou@gmail.com</a> </div>
+                        </div>
+                         <div class="mt-10 pt-8 border-t border-custom-medium/30"> <h4 class="text-lg lg:text-xl font-medium text-gray-700 mb-3">
+                                <span data-lang="fr">Horaires Indicatifs</span>
+                                <span data-lang="ar">أوقات العمل التقريبية</span>
+                             </h4>
+                             <p class="text-gray-600 text-base lg:text-lg">
+                                <span data-lang="fr">Lundi - Samedi : 14h00 - 20h00</span>
+                                <span data-lang="ar">الاثنين - السبت: 14:00 - 20:00</span>
+                             </p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-custom-dark text-custom-light/70 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center text-sm mb-3">
+                 <svg class="h-4 w-4 footer-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-2.13a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                 </svg>
+                <span data-lang="fr">&copy; <span id="year-fr"></span> psymed services. Tous droits réservés.</span>
+                <span data-lang="ar">&copy; <span id="year-ar"></span> خدمات psymed. جميع الحقوق محفوظة.</span>
+            </div>
+            <p class="text-xs text-custom-light/50">
+                 <span data-lang="fr">Site conçu pour le soutien psychologique en ligne au Maroc.</span>
+                 <span data-lang="ar">موقع مصمم لتقديم الدعم النفسي عبر الإنترنت في المغرب.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Language Switching ---
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferredLang', lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active', 'text-custom-dark', 'font-semibold');
+                if (btn.id.includes(`lang-${lang}`)) {
+                    btn.classList.add('active', 'text-custom-dark', 'font-semibold');
+                } else {
+                     btn.classList.add('text-gray-500');
+                }
+            });
+             if (lang === 'ar') {
+                document.title = "دعم نفسي عبر الإنترنت - المغرب | psymed services";
+            } else {
+                document.title = "Soutien Psychologique en Ligne - Maroc | psymed services";
+            }
+            const olElement = document.querySelector('#booking-details ol');
+            if (olElement) {
+                if (lang === 'ar') {
+                    olElement.style.paddingLeft = '0';
+                    olElement.style.paddingRight = '1.5rem';
+                } else {
+                    olElement.style.paddingRight = '0';
+                    olElement.style.paddingLeft = '1.5rem';
+                }
+            }
+        }
+        const preferredLang = localStorage.getItem('preferredLang') || 'fr';
+        switchLanguage(preferredLang);
+
+        // --- Set Current Year ---
+        const currentYear = new Date().getFullYear();
+        const yearFrSpan = document.getElementById('year-fr');
+        const yearArSpan = document.getElementById('year-ar');
+        if (yearFrSpan) yearFrSpan.textContent = currentYear;
+        if (yearArSpan) yearArSpan.textContent = new Intl.NumberFormat('ar-EG').format(currentYear);
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('main-header');
+        const headerHeight = header.offsetHeight;
+        document.querySelector('main').style.paddingTop = `${headerHeight}px`;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // --- Scroll Reveal Animation ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.style.transitionDelay || '0s';
+                    entry.target.style.transition = `opacity 0.7s ease-out ${delay}, transform 0.7s ease-out ${delay}`;
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add data-label attributes for responsive table
+        function setupResponsiveTable() {
+            const table = document.querySelector('.comparison-table');
+            if (!table) return;
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+            const headersFr = Array.from(table.querySelectorAll('thead th span[data-lang="fr"]')).map(span => span.textContent.trim());
+            const headersAr = Array.from(table.querySelectorAll('thead th span[data-lang="ar"]')).map(span => span.textContent.trim());
+
+            table.querySelectorAll('tbody tr').forEach(row => {
+                Array.from(row.querySelectorAll('td')).forEach((td, index) => {
+                    // Use specific language labels if available, otherwise fallback to combined header
+                    const labelFr = headersFr[index] || headers[index] || '';
+                    const labelAr = headersAr[index] || headers[index] || '';
+                    td.setAttribute('data-label-fr', labelFr);
+                    td.setAttribute('data-label-ar', labelAr);
+                    // Set initial data-label based on current language
+                    td.setAttribute('data-label', document.documentElement.lang === 'ar' ? labelAr : labelFr);
+                });
+            });
+        }
+        // Update data-label on language switch
+        const originalSwitchLanguage = switchLanguage;
+        switchLanguage = function(lang) {
+            originalSwitchLanguage(lang); // Call original function
+            document.querySelectorAll('.comparison-table td').forEach(td => {
+                td.setAttribute('data-label', lang === 'ar' ? td.getAttribute('data-label-ar') : td.getAttribute('data-label-fr'));
+            });
+        }
+
+        // Initial setup
+        setupResponsiveTable();
+        switchLanguage(preferredLang); // Re-apply to set initial data-labels correctly
+
+
+    </script>
+
+</body>
+</html>
